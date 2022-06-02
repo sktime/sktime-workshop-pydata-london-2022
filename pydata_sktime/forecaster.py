@@ -39,7 +39,10 @@ Testing - implement if sktime forecaster (not needed locally):
 # todo: uncomment the following line, enter authors' GitHub IDs
 # __author__ = [authorGitHubID, anotherAuthorGitHubID]
 
+import warnings
+
 import numpy as np
+import pandas as pd
 from sktime.forecasting.base import BaseForecaster
 
 
@@ -71,7 +74,7 @@ class SimpleMovingAverage(BaseForecaster):
         "handles-missing-data": False,  # can estimator handle missing data?
         "y_inner_mtype": "pd.Series",  # which types do _fit, _predict, assume for y?
         "X_inner_mtype": "pd.DataFrame",  # which types do _fit, _predict, assume for X?
-        "requires-fh-in-fit": True,  # is forecasting horizon already required in fit?
+        "requires-fh-in-fit": False,  # is forecasting horizon already required in fit?
         "X-y-must-have-same-index": True,  # can estimator handle different X/y index?
         "enforce_index_type": None,  # index type that needs to be enforced in X/y
         "capability:pred_int": False,  # does forecaster implement predict_quantiles?
@@ -79,10 +82,10 @@ class SimpleMovingAverage(BaseForecaster):
     }
 
     # todo: add any hyper-parameters and components to constructor
-    def __init__(self, window: int = 1):
+    def __init__(self, window_length: int = 1):
 
         # todo: write any hyper-parameters to self
-        self.window = window
+        self.window_length = window_length
         # important: no checking or other logic should happen here
 
         # todo: change "MyForecaster" to the name of the class
@@ -118,7 +121,13 @@ class SimpleMovingAverage(BaseForecaster):
         -------
         self : reference to self
         """
-        self._forecast_value = np.mean(y.iloc[-self.window :])
+        if len(y) < self.window_length:
+            warnings.warn(
+                "y has less time-steps than window_length, the full series will be used"
+            )
+            self._forecast_value = np.mean(y)
+        else:
+            self._forecast_value = np.mean(y.iloc[-self.window_length :])
 
         return self
 
@@ -148,9 +157,8 @@ class SimpleMovingAverage(BaseForecaster):
         y_pred : pd.Series
             Point predictions
         """
-
-        # implement here
-        # IMPORTANT: avoid side effects to X, fh
+        index = fh.to_absolute(self.cutoff)
+        return pd.Series(self.constant, index=index)
 
     # todo: implement this if this is an estimator contributed to sktime
     #   or to run local automated unit and integration testing of estimator
