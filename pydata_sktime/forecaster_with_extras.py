@@ -89,7 +89,7 @@ class EasyMAWithUpdateAndProba(BaseForecaster):
         "requires-fh-in-fit": True,  # is forecasting horizon already required in fit?
         "X-y-must-have-same-index": True,  # can estimator handle different X/y index?
         "enforce_index_type": None,  # index type that needs to be enforced in X/y
-        "capability:pred_int": False,  # does forecaster implement proba forecasts?
+        "capability:pred_int": True,  # does forecaster implement proba forecasts?
     }
     #  in case of inheritance, concrete class should typically set tags
     #  alternatively, descendants can set tags in __init__ (avoid this if possible)
@@ -283,7 +283,7 @@ class EasyMAWithUpdateAndProba(BaseForecaster):
                 at quantile probability in second col index, for the row index.
         """
         index = fh.to_absolute(self.cutoff)
-        columns = pd.MultiIndex.from_product(["Quantiles"], alpha)
+        columns = pd.MultiIndex.from_product([["Quantiles"], alpha])
         return pd.DataFrame(self._forecast_value, index=index, columns=columns)
 
     # todo: consider implementing this, optional
