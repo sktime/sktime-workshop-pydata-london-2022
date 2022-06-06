@@ -158,7 +158,7 @@ class SimpleMovingAverage(BaseForecaster):
             Point predictions
         """
         index = fh.to_absolute(self.cutoff)
-        return pd.Series(self.constant, index=index)
+        return pd.Series(self._forecast_value, index=index)
 
     # todo: implement this if this is an estimator contributed to sktime
     #   or to run local automated unit and integration testing of estimator
