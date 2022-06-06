@@ -51,7 +51,7 @@ import pandas as pd
 from sktime.forecasting.base import BaseForecaster
 
 
-class MyForecaster(BaseForecaster):
+class EasyMAWithUpdateAndProba(BaseForecaster):
     """Custom forecaster. todo: write docstring.
 
     todo: describe your custom forecaster here
@@ -95,35 +95,14 @@ class MyForecaster(BaseForecaster):
     #  alternatively, descendants can set tags in __init__ (avoid this if possible)
 
     # todo: add any hyper-parameters and components to constructor
-    def __init__(self, est, parama, est2=None, paramb="default", paramc=None):
-        # estimators should precede parameters
-        #  if estimators have default values, set None and initalize below
+    def __init__(self, window_length: int = 1):
 
-        # todo: write any hyper-parameters and components to self
-        self.est = est
-        self.parama = parama
-        self.paramb = paramb
-        self.paramc = paramc
+        # todo: write any hyper-parameters to self
+        self.window_length = window_length
         # important: no checking or other logic should happen here
 
-        # todo: default estimators should have None arg defaults
-        #  and be initialized here
-        #  do this only with default estimators, not with parameters
-        # if est2 is None:
-        #     self.estimator = MyDefaultEstimator()
-
         # todo: change "MyForecaster" to the name of the class
-        super(MyForecaster, self).__init__()
-
-        # todo: if tags of estimator depend on component tags, set these here
-        #  only needed if estimator is a composite
-        #  tags set in the constructor apply to the object and override the class
-        #
-        # example 1: conditional setting of a tag
-        # if est.foo == 42:
-        #   self.set_tags(handles-missing-data=True)
-        # example 2: cloning tags from component
-        #   self.clone_tags(est2, ["enforce_index_type", "handles-missing-data"])
+        super(EasyMAWithUpdateAndProba, self).__init__()
 
     # todo: implement this, mandatory
     def _fit(self, y, X=None, fh=None):
@@ -231,23 +210,34 @@ class MyForecaster(BaseForecaster):
         -------
         self : reference to self
         """
+        if not update_params:
+            return self
 
-        # implement here
-        # IMPORTANT: avoid side effects to X, fh
+        window_length = self.window_length
 
-    # todo: consider implementing this, optional
-    # if not implementing, delete the _update_predict_single method
-    def _update_predict_single(self, y, fh, X=None, update_params=True):
-        """Update forecaster and then make forecasts.
+        y_new = y
+        y = self._y
 
-        Implements default behaviour of calling update and predict
-        sequentially, but can be overwritten by subclasses
-        to implement more efficient updating algorithms when available.
-        """
-        self.update(y, X, update_params=update_params)
-        return self.predict(fh, X)
-        # implement here
-        # IMPORTANT: avoid side effects to y, X, fh
+        n_new = len(y_new)
+        n = len(y)
+
+        new_frac = n_new / n
+        old_frac = 1 - new_frac
+
+        old_value = self._forecast_value
+        new_mean = np.mean(y_new)
+
+        if n_new >= window_length:
+            new_value = np.mean(y_new.iloc[-window_length :])
+        elif n < window_length:
+            new_value = old_value * old_frac + new_mean * new_frac
+        else:
+            diff_mean = np.mean(y.iloc[-window_length - n_new : -window_length])
+            new_value = old_value + (new_mean - diff_mean) * new_frac
+
+        self._forecast_value = new_value
+
+        return self
 
     # todo: consider implementing one of _predict_quantiles and _predict_interval
     #   if one is implemented, the other one works automatically
