@@ -246,5 +246,5 @@ class MinMaxScaler(BaseTransformer):
         #     return params
         #
         # # "default" params - always returned except for "special_param_set" value
-        # params = {"est": value3, "parama": value4}
-        # return params
+        params = {}
+        return params

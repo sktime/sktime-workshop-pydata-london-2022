@@ -144,6 +144,12 @@ class SimpleMovingAverage(BaseForecaster):
             `MyClass(**params)` or `MyClass(**params[i])` creates a valid test instance.
             `create_test_instance` uses the first (or only) dictionary in `params`
         """
+        params = [
+            {"window_length": 1},
+            {"window_length": 5},
+            {"window_length": 100},
+        ]
+        return params
 
         # todo: set the testing parameters for the estimators
         # Testing parameters can be dictionary or list of dictionaries.
