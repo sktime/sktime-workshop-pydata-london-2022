@@ -7,6 +7,8 @@ import numpy as np
 import pandas as pd
 from sktime.forecasting.base import BaseForecaster
 
+# This forecaster will have a wrong tag!
+
 
 class SimpleMovingAverage(BaseForecaster):
     """Custom forecaster. todo: write docstring.
@@ -39,7 +41,7 @@ class SimpleMovingAverage(BaseForecaster):
         "requires-fh-in-fit": False,  # is forecasting horizon already required in fit?
         "X-y-must-have-same-index": True,  # can estimator handle different X/y index?
         "enforce_index_type": None,  # index type that needs to be enforced in X/y
-        "capability:pred_int": False,  # does forecaster implement predict_quantiles?
+        "capability:pred_int": True,  # does forecaster implement predict_quantiles?
         # deprecated and likely to be removed in 0.12.0
     }
 
@@ -144,6 +146,12 @@ class SimpleMovingAverage(BaseForecaster):
             `MyClass(**params)` or `MyClass(**params[i])` creates a valid test instance.
             `create_test_instance` uses the first (or only) dictionary in `params`
         """
+        params = [
+            {"window_length": 1},
+            {"window_length": 5},
+            {"window_length": 100},
+        ]
+        return params
 
         # todo: set the testing parameters for the estimators
         # Testing parameters can be dictionary or list of dictionaries.
