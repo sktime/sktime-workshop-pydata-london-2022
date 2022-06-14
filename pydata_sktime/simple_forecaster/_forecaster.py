@@ -9,19 +9,17 @@ from sktime.forecasting.base import BaseForecaster
 
 
 class SimpleMovingAverage(BaseForecaster):
-    """Custom forecaster. todo: write docstring.
+    """Simple Moving Average forecasting algorithm
 
-    todo: describe your custom forecaster here
+    The Simple Moving Average forecasting algorithm predicts a univariate time series
+    by averaging the last n (window_length parameter) observations of the series.
 
     Parameters
     ----------
-    parama : int
-        descriptive explanation of parama
-    paramb : string, optional (default='default')
-        descriptive explanation of paramb
-    paramc : boolean, optional (default= whether paramb is not the default)
-        descriptive explanation of paramc
-    and so on
+    window_length : int
+        the number of observations used to calculate the moving average.
+        if the window leght is greater than the time series the whole series is used.
+        By default, 1.
     """
 
     # todo: fill out estimator tags here

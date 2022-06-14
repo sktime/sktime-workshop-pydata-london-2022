@@ -7,26 +7,10 @@ from sktime.transformations.base import BaseTransformer
 
 
 class MinMaxScaler(BaseTransformer):
-    """Custom transformer. todo: write docstring.
+    """Min Max Scaling transformer
 
-    todo: describe your custom transformer here
-        fill in sections appropriately
-        docstring must be numpydoc compliant
-
-    Parameters
-    ----------
-    parama : int
-        descriptive explanation of parama
-    paramb : string, optional (default='default')
-        descriptive explanation of paramb
-    paramc : boolean, optional (default= whether paramb is not the default)
-        descriptive explanation of paramc
-    and so on
-    est : sktime.estimator, BaseEstimator descendant
-        descriptive explanation of est
-    est2: another estimator
-        descriptive explanation of est2
-    and so on
+    The min max scaler, also called standard scaler is used to ensure that a series
+    is bounded between 0 and 1.
     """
 
     # todo: fill out estimator tags here
