@@ -48,13 +48,6 @@ class CompositeMovingAverage(BaseForecaster):
 
         self.window_length = window_length
         self.transformer = transformer
-        # parameter copies should never be changed!
-
-        # so, we make a clone that is going to be fitted etc
-        if transformer is None:
-            self.transformer_ = None
-        else:
-            self.transformer_ = transformer.clone()
 
         # todo: change "MyForecaster" to the name of the class
         super(CompositeMovingAverage, self).__init__()
@@ -89,8 +82,8 @@ class CompositeMovingAverage(BaseForecaster):
         -------
         self : reference to self
         """
-        if self.transformer_ is not None:
-            self.transformer_.fit(y)
+        if self.transformer is not None:
+            self.transformer.fit(y)
 
         if len(y) < self.window_length:
             warnings.warn(
@@ -130,8 +123,8 @@ class CompositeMovingAverage(BaseForecaster):
         """
         index = fh.to_absolute(self.cutoff)
         y_pred = pd.Series(self._forecast_value, index=index)
-        if self.transformer_ is not None:
-            y_pred = self.transformer_.transform(y_pred)
+        if self.transformer is not None:
+            y_pred = self.transformer.transform(y_pred)
         return y_pred
 
     # todo: implement this if this is an estimator contributed to sktime
