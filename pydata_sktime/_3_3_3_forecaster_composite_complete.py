@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # copyright: sktime developers, BSD-3-Clause License (see LICENSE file)
-"""Pydata tutorial estimators."""
+"""Pydata tutorial estimators: composite forecaster, final version."""
 import warnings
 
 import numpy as np
