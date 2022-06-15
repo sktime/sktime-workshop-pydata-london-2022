@@ -57,7 +57,7 @@ class CompositeMovingAverage(BaseForecaster):
             self.transformer_ = transformer.clone()
 
         # todo: change "MyForecaster" to the name of the class
-        super(SimpleMovingAverage, self).__init__()
+        super(CompositeMovingAverage, self).__init__()
 
     # todo: implement this, mandatory
     def _fit(self, y, X=None, fh=None):

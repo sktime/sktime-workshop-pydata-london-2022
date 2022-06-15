@@ -48,6 +48,8 @@ import warnings
 
 import numpy as np
 import pandas as pd
+
+from sktime.exceptions import NotFittedError
 from sktime.forecasting.base import BaseForecaster
 
 
@@ -295,7 +297,10 @@ class EasyMAWithUpdateAndProba(BaseForecaster):
         -------
         fitted_params : dict
         """
-        return {"forecast_value": self._forecast_value}
+        if self.is_fitted:
+            return {"forecast_value": self._forecast_value}
+        else:
+            raise NotFittedError
 
     # todo: implement this if this is an estimator contributed to sktime
     #   or to run local automated unit and integration testing of estimator

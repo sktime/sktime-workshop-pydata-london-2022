@@ -283,7 +283,7 @@ class EasyMAWithUpdateAndProba(BaseForecaster):
                 at quantile probability in second col index, for the row index.
         """
         index = fh.to_absolute(self.cutoff)
-        columns = pd.MultiIndex.from_product([["quantiles"], alpha])
+        columns = pd.MultiIndex.from_product([["Quantiles"], alpha])
         return pd.DataFrame(self._forecast_value, index=index, columns=columns)
 
     # todo: consider implementing this, optional
