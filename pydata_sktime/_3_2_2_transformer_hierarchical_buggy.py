@@ -59,7 +59,7 @@ class MinMaxScalerHierarchical(BaseTransformer):
         "scitype:instancewise": False,  # is this an instance-wise transform?
         "capability:inverse_transform": True,  # can the transformer inverse transform?
         "univariate-only": True,  # can the transformer handle multivariate X?
-        "X_inner_mtype": ["pd_multiindex_hier", "pd-multiindex", "pd.DataFrame"],
+        "X_inner_mtype": "pd_multiindex_hier",
         "y_inner_mtype": "None",  # which mtypes do _fit/_predict support for y?
         "requires_y": False,  # does y need to be passed in fit?
         "enforce_index_type": None,  # index type that needs to be enforced in X/y
