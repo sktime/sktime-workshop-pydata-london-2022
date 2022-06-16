@@ -7,26 +7,10 @@ from sktime.transformations.base import BaseTransformer
 
 
 class MinMaxScalerHierarchical(BaseTransformer):
-    """Custom transformer. todo: write docstring.
+    """Min Max Scaling transformer for hierarchical time series
 
-    todo: describe your custom transformer here
-        fill in sections appropriately
-        docstring must be numpydoc compliant
-
-    Parameters
-    ----------
-    parama : int
-        descriptive explanation of parama
-    paramb : string, optional (default='default')
-        descriptive explanation of paramb
-    paramc : boolean, optional (default= whether paramb is not the default)
-        descriptive explanation of paramc
-    and so on
-    est : sktime.estimator, BaseEstimator descendant
-        descriptive explanation of est
-    est2: another estimator
-        descriptive explanation of est2
-    and so on
+    The MinMaxScalerHierarchical transformer applies a min-max transformation to the
+    full dataset and not per each series.
     """
 
     # todo: fill out estimator tags here
@@ -94,11 +78,9 @@ class MinMaxScalerHierarchical(BaseTransformer):
 
         Parameters
         ----------
-        X : Series or Panel of mtype X_inner_mtype
-            if X_inner_mtype is list, _fit must support all types in it
-            Data to fit transform to
-        y : Series or Panel of mtype y_inner_mtype, default=None
-            Additional data, e.g., labels for transformation
+        X : Series or Panel of mtype pd_multiindex_hier.
+            Data to fit transform to.
+        y : Ignored, here for interface compatibility, default=None
 
         Returns
         -------
@@ -117,11 +99,9 @@ class MinMaxScalerHierarchical(BaseTransformer):
 
         Parameters
         ----------
-        X : Series or Panel of mtype X_inner_mtype
-            if X_inner_mtype is list, _transform must support all types in it
-            Data to be transformed
-        y : Series or Panel of mtype y_inner_mtype, default=None
-            Additional data, e.g., labels for transformation
+        X : Series or Panel of mtype pd_multiindex_hier.
+            Data to be transformed.
+        y : Ignored, here for interface compatibility, default=None
 
         Returns
         -------
@@ -142,11 +122,9 @@ class MinMaxScalerHierarchical(BaseTransformer):
 
         Parameters
         ----------
-        X : Series or Panel of mtype X_inner_mtype
-            if X_inner_mtype is list, _inverse_transform must support all types in it
-            Data to be inverse transformed
-        y : Series or Panel of mtype y_inner_mtype, optional (default=None)
-            Additional data, e.g., labels for transformation
+        X : Series or Panel of mtype pd_multiindex_hier
+            Data to be inverse transformed.
+        y : Ignored, here for interface compatibility, default=None
 
         Returns
         -------

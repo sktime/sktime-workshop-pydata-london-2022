@@ -80,6 +80,7 @@ class MinMaxScaler(BaseTransformer):
         Parameters
         ----------
         X : Series of mtype pd.Series
+            Data to fit transform to.
         y : Ignored, here for interface compatibility, default=None
 
         Returns
@@ -101,6 +102,7 @@ class MinMaxScaler(BaseTransformer):
         Parameters
         ----------
         X : Series of mtype pd.Series
+            Data to be transformed.
         y : Ignored, here for interface compatibility, default=None
 
         Returns
@@ -141,11 +143,9 @@ class MinMaxScaler(BaseTransformer):
 
         Parameters
         ----------
-        X : Series or Panel of mtype X_inner_mtype
-            if X_inner_mtype is list, _inverse_transform must support all types in it
-            Data to be inverse transformed
-        y : Series or Panel of mtype y_inner_mtype, optional (default=None)
-            Additional data, e.g., labels for transformation
+        X : Series of mtype pd.Series
+            Data to be inverse transformed.
+        y : Ignored, here for interface compatibility, default=None
 
         Returns
         -------
