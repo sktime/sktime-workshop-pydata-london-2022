@@ -1,7 +1,6 @@
 flake8
 isort
 black
-pytest
 pydocstyle
 pre-commit
 ipykernel

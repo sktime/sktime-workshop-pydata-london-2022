@@ -114,8 +114,8 @@ class MinMaxScaler(BaseTransformer):
         #  X_transformed : Series of mtype pd.DataFrame
         #       transformed version of X
 
-        self._min = np.min(X)
-        self._max = np.max(X)
+        self._transformed_X_min = np.min(X)
+        self._transformed_X_max = np.max(X)
 
         X_transformed = (X - self._min) / (self._max - self._min)
 

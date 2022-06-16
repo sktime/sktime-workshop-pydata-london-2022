@@ -1,3 +1,4 @@
 sktime==0.12
 seaborn
 jupyter
+pytest
