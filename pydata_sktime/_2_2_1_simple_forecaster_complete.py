@@ -16,10 +16,9 @@ class SimpleMovingAverage(BaseForecaster):
 
     Parameters
     ----------
-    window_length : int
+    window_length : int, optional, default=1
         the number of observations used to calculate the moving average.
         if the window leght is greater than the time series the whole series is used.
-        By default, 1.
     """
 
     # todo: fill out estimator tags here

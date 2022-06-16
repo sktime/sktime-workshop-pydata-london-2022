@@ -11,7 +11,7 @@ from sktime.transformations.base import BaseTransformer
 class MinMaxScaler(BaseTransformer):
     """Min Max Scaling transformer
 
-    The min max scaler applies an affine transformation that ensures that
+    The min max scaler applies a transformation that ensures that
     a series is bounded between 0 and 1.
     """
 

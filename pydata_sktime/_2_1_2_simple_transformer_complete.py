@@ -9,7 +9,7 @@ from sktime.transformations.base import BaseTransformer
 class MinMaxScaler(BaseTransformer):
     """Min Max Scaling transformer
 
-    The min max scaler applies an affine transformation that ensures that
+    The min max scaler applies a transformation that ensures that
     a series is bounded between 0 and 1.
     """
 
@@ -40,7 +40,7 @@ class MinMaxScaler(BaseTransformer):
         # what scitype is returned: Primitives, Series, Panel
         "scitype:transform-labels": "None",
         # what is the scitype of y: None (not needed), Primitives, Series, Panel
-        "scitype:instancewise": False,  # is this an instance-wise transform?
+        "scitype:instancewise": True,  # is this an instance-wise transform?
         "capability:inverse_transform": True,  # can the transformer inverse transform?
         "univariate-only": True,  # can the transformer handle multivariate X?
         "X_inner_mtype": "pd.Series",  # which mtypes do _fit/_predict support for X?
