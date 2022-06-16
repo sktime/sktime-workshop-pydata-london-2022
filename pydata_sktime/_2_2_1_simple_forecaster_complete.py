@@ -65,11 +65,11 @@ class SimpleMovingAverage(BaseForecaster):
             The forecasting horizon with the steps ahead to to predict.
             Required (non-optional) here if self.get_tag("requires-fh-in-fit")==True
             Otherwise, if not passed in _fit, guaranteed to be passed in _predict.
-            Ignored but this estimator.
+            Ignored by this estimator.
         X : optional (default=None)
             guaranteed to be pd.DataFrame
             Exogeneous time series to fit to.
-            Ignored but this estimator.
+            Ignored by this estimator.
 
         Returns
         -------
