@@ -105,6 +105,7 @@ class SimpleMovingAverage(BaseForecaster):
             If not passed in _fit, guaranteed to be passed here
         X : pd.DataFrame, optional (default=None)
             Exogenous time series
+            Ignored by this estimator.
 
         Returns
         -------
