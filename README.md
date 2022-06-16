@@ -13,14 +13,14 @@ This **advanced tutorial** explains how to write your own sktime estimator, e.g.
 
 [sktime]: https://sktime.org
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/sktime/sktime-tutorial-pydata-berlin-2022/main?filepath=notebooks)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/sktime/sktime-workshop-pydata-london-2022/main?filepath=notebooks)
 
 If you are unfamiliar with `sktime`, it is recommended to work through the **general sktime introduction tutorial** first:
 
 :movie_camera: **[general sktime intro tutorial](https://github.com/sktime/sktime-tutorial-pydata-glboal-2021) from PyData Global 2021**\
 :tv: [youtube video of sktime intro at PyData Global 2021](https://www.youtube.com/watch?v=ODspi8-uWgo)
 
-:movie_camera: **Check out our [previous tutorial on hierarchical & probabilistic forecasting](https://github.com/sktime/sktime-tutorial-pydata-global-2021) from PyData Global 2021!**\
+:movie_camera: **Check out our [previous tutorial on hierarchical & probabilistic forecasting](https://github.com/sktime/sktime-tutorial-pydata-global-2021) from PyData Global 2021!**
 
 ## :bulb: Description
 
