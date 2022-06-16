@@ -48,30 +48,21 @@ import warnings
 
 import numpy as np
 import pandas as pd
-
 from sktime.exceptions import NotFittedError
 from sktime.forecasting.base import BaseForecaster
 
 
 class EasyMAWithUpdateAndProba(BaseForecaster):
-    """Custom forecaster. todo: write docstring.
+    """Simple Moving Average forecasting algorithm
 
-    todo: describe your custom forecaster here
+    The Simple Moving Average forecasting algorithm predicts a univariate time series
+    by averaging the last n (window_length parameter) observations of the series.
 
     Parameters
     ----------
-    parama : int
-        descriptive explanation of parama
-    paramb : string, optional (default='default')
-        descriptive explanation of paramb
-    paramc : boolean, optional (default= whether paramb is not the default)
-        descriptive explanation of paramc
-    and so on
-    est : sktime.estimator, BaseEstimator descendant
-        descriptive explanation of est
-    est2: another estimator
-        descriptive explanation of est2
-    and so on
+    window_length : int, optional, default=1
+        the number of observations used to calculate the moving average.
+        if the window leght is greater than the time series the whole series is used.
     """
 
     # todo: fill out estimator tags here
@@ -117,20 +108,15 @@ class EasyMAWithUpdateAndProba(BaseForecaster):
 
         Parameters
         ----------
-        y : guaranteed to be of a type in self.get_tag("y_inner_mtype")
-            Time series to which to fit the forecaster.
-            if self.get_tag("scitype:y")=="univariate":
-                guaranteed to have a single column/variable
-            if self.get_tag("scitype:y")=="multivariate":
-                guaranteed to have 2 or more columns
-            if self.get_tag("scitype:y")=="both": no restrictions apply
+        y : guaranteed to be pd.Series
         fh : guaranteed to be ForecastingHorizon or None, optional (default=None)
             The forecasting horizon with the steps ahead to to predict.
             Required (non-optional) here if self.get_tag("requires-fh-in-fit")==True
-            Otherwise, if not passed in _fit, guaranteed to be passed in _predict
-        X : optional (default=None)
-            guaranteed to be of a type in self.get_tag("X_inner_mtype")
+            Otherwise, if not passed in _fit, guaranteed to be passed in _predict.
+            Ignored by this estimator.
+        X : guaranteed to be of type pd.DataFrame, optional (default=None)
             Exogeneous time series to fit to.
+            Ignored by this estimator.
 
         Returns
         -------
@@ -164,8 +150,9 @@ class EasyMAWithUpdateAndProba(BaseForecaster):
         fh : guaranteed to be ForecastingHorizon or None, optional (default=None)
             The forecasting horizon with the steps ahead to to predict.
             If not passed in _fit, guaranteed to be passed here
-        X : pd.DataFrame, optional (default=None)
-            Exogenous time series
+        X : guaranteed to be of type pd.DataFrame, optional (default=None)
+            Exogenous time series.
+            Ignored by this estimator.
 
         Returns
         -------
@@ -195,16 +182,10 @@ class EasyMAWithUpdateAndProba(BaseForecaster):
 
         Parameters
         ----------
-        y : guaranteed to be of a type in self.get_tag("y_inner_mtype")
-            Time series with which to update the forecaster.
-            if self.get_tag("scitype:y")=="univariate":
-                guaranteed to have a single column/variable
-            if self.get_tag("scitype:y")=="multivariate":
-                guaranteed to have 2 or more columns
-            if self.get_tag("scitype:y")=="both": no restrictions apply
-        X : optional (default=None)
-            guaranteed to be of a type in self.get_tag("X_inner_mtype")
-            Exogeneous time series for the forecast
+        y : guaranteed to be pd.Series
+        X : guaranteed to be of type pd.DataFrame, optional (default=None)
+            Exogeneous time series to fit to.
+            Ignored by this estimator.
         update_params : bool, optional (default=True)
             whether model parameters should be updated
 
@@ -230,7 +211,7 @@ class EasyMAWithUpdateAndProba(BaseForecaster):
         new_mean = np.mean(y_new)
 
         if n_new >= window_length:
-            new_value = np.mean(y_new.iloc[-window_length :])
+            new_value = np.mean(y_new.iloc[-window_length:])
         elif n < window_length:
             new_value = old_value * old_frac + new_mean * new_frac
         else:
@@ -268,9 +249,9 @@ class EasyMAWithUpdateAndProba(BaseForecaster):
         ----------
         fh : guaranteed to be ForecastingHorizon
             The forecasting horizon with the steps ahead to to predict.
-        X : optional (default=None)
-            guaranteed to be of a type in self.get_tag("X_inner_mtype")
-            Exogeneous time series for the forecast
+        X : guaranteed to be of type pd.DataFrame, optional (default=None)
+            Exogeneous time series for the forecast.
+            Ignored by this estimator.
         alpha : list of float (guaranteed not None and floats in [0,1] interval)
             A list of probabilities at which quantile forecasts are computed.
 
