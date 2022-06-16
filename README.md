@@ -82,7 +82,7 @@ To clone the repository locally:
 1. Create a python virtual environment:  
 `conda create -y -n pydata_sktime python=3.9`
 2. Install required packages:  
-`conda install -y -n pydata_sktime pip sktime pytest seaborn jupyter`
+`conda install -y -n pydata_sktime pip sktime pytest seaborn jupyter pmdarima`
 3. Activate your environment:  
 `conda activate pydata_sktime`
 4. If using jupyter: make the environment available in jupyter:  
@@ -110,7 +110,7 @@ To clone the repository locally:
 2. Activate your environment:  
 `source .venv/bin/activate`
 3. Install the requirements:  
-`pip install sktime pytest seaborn jupyter`
+`pip install sktime pytest seaborn jupyter pmdarima`
 4. If using jupyter: make the environment available in jupyter:  
 `python -m ipykernel install --user --name=pydata_sktime`
 
