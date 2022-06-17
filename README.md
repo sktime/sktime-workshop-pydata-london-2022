@@ -20,7 +20,7 @@ If you are unfamiliar with `sktime`, it is recommended to work through the **gen
 :movie_camera: **[general sktime intro tutorial](https://github.com/sktime/sktime-tutorial-pydata-glboal-2021) from PyData Global 2021**\
 :tv: [youtube video of sktime intro at PyData Global 2021](https://www.youtube.com/watch?v=ODspi8-uWgo)
 
-:movie_camera: **Check out our [previous tutorial on hierarchical & probabilistic forecasting](https://github.com/sktime/sktime-tutorial-pydata-global-2021) from PyData Global 2021!**
+:movie_camera: **Check out our [previous tutorial on hierarchical & probabilistic forecasting](https://github.com/sktime/sktime-tutorial-pydata-berlin-2022) from PyData Berlin 2022!**
 
 ## :bulb: Description
 
