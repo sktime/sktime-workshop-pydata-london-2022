@@ -5,8 +5,8 @@ import pytest
 
 from sktime.utils.estimator_checks import check_estimator
 
-from pydata_sktime.estimators import SimpleMovingAverage
-from pydata_sktime.forecaster_with_extras import EasyMAWithUpdateAndProba
+from pydata_sktime._2_2_1_simple_forecaster_complete import SimpleMovingAverage
+from pydata_sktime._3_1_3_forecaster_with_extras_complete import EasyMAWithUpdateAndProba
 
 MY_ESTIMATORS = [SimpleMovingAverage, EasyMAWithUpdateAndProba]
 
