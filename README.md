@@ -17,10 +17,10 @@ This **advanced tutorial** explains how to write your own sktime estimator, e.g.
 
 If you are unfamiliar with `sktime`, it is recommended to work through the **general sktime introduction tutorial** first:
 
-:movie_camera: **[general sktime intro tutorial](https://github.com/sktime/sktime-tutorial-pydata-glboal-2021) from PyData Global 2021**\
+:movie_camera: **[general sktime intro tutorial](https://github.com/sktime/sktime-tutorial-pydata-global-2021) from PyData Global 2021**\
 :tv: [youtube video of sktime intro at PyData Global 2021](https://www.youtube.com/watch?v=ODspi8-uWgo)
 
-:movie_camera: **Check out our [previous tutorial on hierarchical & probabilistic forecasting](https://github.com/sktime/sktime-tutorial-pydata-global-2021) from PyData Global 2021!**
+:movie_camera: **Check out our [previous tutorial on hierarchical & probabilistic forecasting](https://github.com/sktime/sktime-tutorial-pydata-berlin-2022) from PyData Berlin 2022!**
 
 ## :bulb: Description
 
@@ -43,7 +43,7 @@ The extension templates are python files with gaps that the extender is meant to
 
 A full developer setup is typically not required to implement a custom estimator compatible with sktime.
 
-:movie_camera: **Check out our [previous tutorial (probabilistic & hierarchical forecasting)](https://github.com/sktime/sktime-tutorial-pydata-berlin-2021) from PyData Berlin 2021!**\
+:movie_camera: **Check out our [previous tutorial (probabilistic & hierarchical forecasting)](https://github.com/sktime/sktime-tutorial-pydata-berlin-2021) from PyData Berlin 2022!**\
 :movie_camera: **Check out our [previous tutorial (general intro)](https://github.com/sktime/sktime-tutorial-pydata-global-2021) from PyData Global 2021!**\
 :movie_camera: **Check out our [previous tutorial (general intro, legacy version)](https://github.com/sktime/sktime-tutorial-pydata-amsterdam-2020) from PyData Amsterdam 2020!**
 
