@@ -5,7 +5,7 @@ Welcome to the sktime tutorial at PyData London 2022
 
 ### How to implement your own estimator
 
-:tv: youtube link of tutorial will be made available here
+:tv: [watch on youtube](https://youtu.be/S_3ewcvs_pg)
 
 This tutorial is about [sktime] - a unified framework for machine learning with time series. sktime features various time series algorithms and modular tools for sktime is a widely used scikit-learn compatible library for learning with time series. sktime is easily extensible by anyone, and interoperable with the pydata/numfocus stack. 
 
