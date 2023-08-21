@@ -1,4 +1,4 @@
-<a href="https://sktime.org"><img src="https://github.com/alan-turing-institute/sktime/blob/main/docs/source/images/sktime-logo-no-text.jpg?raw=true)" width="175" align="right" /></a>
+<a href="https://sktime.net"><img src="https://github.com/alan-turing-institute/sktime/blob/main/docs/source/images/sktime-logo-no-text.jpg?raw=true)" width="175" align="right" /></a>
 
 Welcome to the sktime tutorial at PyData London 2022
 ====================================================
@@ -11,7 +11,7 @@ This tutorial is about [sktime] - a unified framework for machine learning with 
 
 This **advanced tutorial** explains how to write your own sktime estimator, e.g., forecaster, classifier, transformer, by using sktime’s extension templates and testing framework. A custom estimator can live in any local code base, and will be compatible with sktime pipelines, or scikit-learn.
 
-[sktime]: https://sktime.org
+[sktime]: https://sktime.net
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/sktime/sktime-workshop-pydata-london-2022/main?filepath=notebooks)
 
@@ -58,11 +58,11 @@ You have different options how to run the tutorial notebooks:
 [Binder]: https://mybinder.org/v2/gh/sktime/sktime-workshop-pydata-london-2022/main?filepath=notebooks
 [clone]: https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository
 [conda]: https://docs.conda.io/en/latest/
-[installation instructions]: https://www.sktime.org/en/latest/installation.html
+[installation instructions]: https://www.sktime.net/en/latest/installation.html
 
 ## :wave: How to contribute
 
-If you're interested in contributing to sktime, you can find out more how to get involved [here](https://www.sktime.org/en/stable/get_involved.html).
+If you're interested in contributing to sktime, you can find out more how to get involved [here](https://www.sktime.net/en/stable/get_involved.html).
 
 Any contributions are welcome, not just code!
 
